@@ -15,15 +15,15 @@
                 <h2 class="text-[30px]">Geometry Genius</h2>
             </div>
             <div>
-                <button class="btn text-white bg-sky-500" type="submit" id="blog-btn">Blog</button>
+                <button class="btn text-white bg-sky-500 hover:text-black border hover:border-black" type="submit" id="blog-btn">Blog</button>
             </div>
         </div>
     </header>
     <main>
         <!-- container -->
-        <div class="flex flex-col justify-center gap-4 mt-4 md:flex-row md:flex-wrap md:justify-evenly">
+        <div class="flex flex-col justify-center gap-4 items-center mt-4 mb-4 md:flex-row md:flex-wrap md:justify-evenly">
             <!-- shape container -->
-            <div class="flex flex-col justify-center gap-3 items-center md:flex-row md:flex-wrap md:gap-5"> 
+            <div class="flex flex-col justify-center gap-3 items-center sm:flex-row sm:flex-wrap md:grid md:grid-cols-3 md:gap-5"> 
                 <!-- triangle card -->
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <figure><img class="p-2" src="images/triangle.png" alt="Shoes" /></figure>
@@ -78,13 +78,80 @@
                       </div>
                     </div>
                   </div>
+                  <!-- Rhombus card -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img class="p-2" src="images/rhombus.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center">
+                      <h2 class="card-title">Rhombus</h2>
+                      <p class="text-center">Area (A) = 0.5 &#215 d1 &#215 d2</p>
+                      <p class="text-center md:flex md:gap-2">
+                        <input class="border w-24 text-md px-2" type="number" name="" placeholder="diagonal(d1)" id="diagonal-1" min="1">
+                        <span class="ml-2">cm</span><br>
+                        <input class="border w-24 text-md px-2" type="number" name="" placeholder="diagonal(d2)" id="diagonal-2" min="1">
+                        <span class="ml-2">cm</span>
+                      </p>
+                      <p>Area: <span id="showRhombusArea">0</span> cm<sup>2</sup></p>
+                      <div class="card-actions justify-center mt-2">
+                        <button class="btn btn-primary" id="rhombus-calculate">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- pentagon card -->
+                  <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img class="p-2" src="images/pentagon.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center">
+                      <h2 class="card-title">Pentagon</h2>
+                      <p class="text-center">Area (A) = 0.5 &#215 p &#215 a</p>
+                      <p class="text-center md:flex md:gap-2">
+                        <input class="border w-24 text-md px-2" type="number" name="" id="perimeter" placeholder="perimeter(p)">
+                        <span class="ml-2">cm</span><br>
+                        <input class="border w-24 text-md px-2" type="number" name="" id="apothem" placeholder="apothem(a)">
+                        <span class="ml-2">cm</span>
+                      </p>
+                      <p>Area: <span id="showPentagonArea">0</span> cm<sup>2</sup></p>
+                      <div class="card-actions justify-center mt-2">
+                        <button class="btn btn-primary" id="pentagon-calculate">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ellipse card -->
+                  <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img class="p-2" src="images/ellipse.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center">
+                      <h2 class="card-title">Ellipse</h2>
+                      <p class="text-center">Area (A) = &pi; &#215 a &#215 b</p>
+                      <p class="text-center md:flex md:gap-2">
+                        <input class="border w-24 text-md px-2" type="number" name="" id="axis_a" placeholder="axis(a)">
+                        <span class="ml-2">cm</span><br>
+                        <input class="border w-24 text-md px-2" type="number" name="" id="axis_b" placeholder="axis(b)">
+                        <span class="ml-2">cm</span>
+                      </p>
+                      <p>Area: <span id="showEllipseArea">0</span> cm<sup>2</sup></p>
+                      <div class="card-actions justify-center mt-2">
+                        <button class="btn btn-primary" id="ellipse-calculate">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
             </div>
             <!-- area calculator -->
             <div>
                 <div class="text-[24px]">Area Calculator</div>
+                <div id="calculation-entry">
+
+                </div>
             </div>
         </div>
     </main>
+    <script>
+      function addCalculationEntry(areaName, area){
+        const calculation_entry = document.getElementById('calculation-entry');
+        const p = document.createElement('p');
+        const count = calculation_entry.childElementCount;
+        p.classList.add('my-4');
+        p.innerHTML = `${count+1}. ${areaName} ${area} cm<sup>2</sup> <button class="btn btn-sm btn-success">Convert</button>`;
+        calculation_entry.appendChild(p);
+      }
+    </script>
     <script src="scripts/area_calculator.js"></script>
 </body>
 </html>
