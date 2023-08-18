@@ -21,9 +21,9 @@
     </header>
     <main>
         <!-- container -->
-        <div class="flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center gap-4 mt-4 md:flex-row md:flex-wrap md:justify-evenly">
             <!-- shape container -->
-            <div class="flex flex-col justify-center items-center"> 
+            <div class="flex flex-col justify-center gap-3 items-center md:flex-row md:flex-wrap md:gap-5"> 
                 <!-- triangle card -->
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <figure><img class="p-2" src="images/triangle.png" alt="Shoes" /></figure>
@@ -65,15 +65,16 @@
                     <figure><img class="p-2" src="images/parallelogram.png" alt="Shoes" /></figure>
                     <div class="card-body items-center">
                       <h2 class="card-title">Parallelogram</h2>
-                      <p class="text-center">Area (A) = 0.5 &#215 b &#215 h</p>
+                      <p class="text-center">Area (A) = b &#215 h</p>
                       <p class="text-center md:flex md:gap-2">
-                        <input class="border w-24 text-md px-2" type="number" name="" id="" placeholder="base(b)">
+                        <input class="border w-24 text-md px-2" type="number" name="" id="parallelogram-base" placeholder="base(b)">
                         <span class="ml-2">cm</span><br>
-                        <input class="border w-24 text-md px-2" type="number" name="" id="" placeholder="height(h)">
+                        <input class="border w-24 text-md px-2" type="number" name="" id="parallelogram-height" placeholder="height(h)">
                         <span class="ml-2">cm</span>
                       </p>
+                      <p>Area: <span id="showParallelogramArea">0</span> cm<sup>2</sup></p>
                       <div class="card-actions justify-center mt-2">
-                        <button class="btn btn-primary">Calculate</button>
+                        <button class="btn btn-primary" id="parallelogram-calculate">Calculate</button>
                       </div>
                     </div>
                   </div>

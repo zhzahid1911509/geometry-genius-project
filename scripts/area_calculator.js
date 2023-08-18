@@ -35,3 +35,22 @@ document.getElementById('rectangle-calculate').addEventListener('click', functio
         document.getElementById('showRectangleArea').innerHTML = '<strong style="font-size:20px">'+rectangleArea+'</strong>';
     }
 });
+
+// calculate parallelogram area
+document.getElementById('parallelogram-calculate').addEventListener('click', function(){
+    const baseField = document.getElementById('parallelogram-base').value;
+    const baseValue = parseFloat(baseField);
+
+    const heightField = document.getElementById('parallelogram-height').value;
+    const heightValue = parseFloat(heightField);
+
+    if(baseValue < 1 || heightValue < 1){
+        //alert("Zero or Negative value is not ALLOWED");
+        alert("Zero or Negative value is not ALLOWED");
+        return
+    }
+    else{
+        const parallelogramArea = baseValue*heightValue;
+        document.getElementById('showParallelogramArea').innerHTML = '<strong style="font-size:20px">'+parallelogramArea+'</strong>';
+    }
+});
